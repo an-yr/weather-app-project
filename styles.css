@@ -1,0 +1,57 @@
+body {
+  font-family: "Nunito", sans-serif;
+}
+p {
+  margin: 0;
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+}
+.my-card {
+  background: linear-gradient(
+    179.1deg,
+    rgb(247, 238, 238) -1.9%,
+    rgb(247, 202, 201) 44.9%,
+    rgb(145, 168, 208) 96.1%
+  );
+
+  border-radius: 0.75rem;
+  width: 400px;
+  position: static;
+  flex: block;
+  margin: 0 auto;
+  border: none;
+}
+.city-name {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 40px;
+}
+.today-background {
+  background: rgba(255, 255, 255, 0.1);
+  width: 350px;
+  border-radius: 0.5rem;
+  flex: block;
+  margin: 0 auto;
+}
+.degree-unit {
+  font-size: 20px;
+}
+.degree-number {
+  font-size: 40px;
+  font-weight: 800;
+}
+.aditional-info {
+  font-size: 12px;
+}
+.enter-city {
+  border-radius: 0.25rem;
+  border: 1px solid grey;
+  background: rgba(255, 255, 255, 0.7);
+}
+.sun-icon {
+  color: orangered;
+}
+.form-text {
+  font-size: 12px;
+}
