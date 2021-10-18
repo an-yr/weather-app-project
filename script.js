@@ -41,41 +41,25 @@ let date = document.querySelector("#date");
 date.innerHTML = `${currentDay}, ${currentMonth} ${currentDate} <br> ${currentHour}`;
 
 function showTemperature(response) {
-  let cityLocation = response.data.name;
   let currentCity = document.querySelector("#location");
-  currentCity.innerHTML = cityLocation;
-
-  let currentTemperature = Math.round(response.data.main.temp);
   let degree = document.querySelector("#degree");
-  degree.innerHTML = currentTemperature;
-
-  let highTemp = Math.round(response.data.main.temp_max);
   let tempMax = document.querySelector("#highTemp");
-  tempMax.innerHTML = highTemp;
-
-  let lowTemp = Math.round(response.data.main.temp_min);
   let tempMin = document.querySelector("#lowTemp");
-  tempMin.innerHTML = lowTemp;
-
-  let feelsLike = Math.round(response.data.main.feels_like);
   let feels = document.querySelector("#feel-like");
-  feels.innerHTML = feelsLike;
-
-  let humidity = Math.round(response.data.main.humidity);
   let humidityValue = document.querySelector("#humidity");
-  humidityValue.innerHTML = humidity;
-
-  let pressure = Math.round(response.data.main.pressure);
   let pressureValue = document.querySelector("#pressure");
-  pressureValue.innerHTML = pressure;
-
-  let wind = Math.round(response.data.wind.speed);
   let windValue = document.querySelector("#wind");
-  windValue.innerHTML = wind;
-
-  let description = response.data.weather[0].description;
   let weatherDescription = document.querySelector("#description");
-  weatherDescription.innerHTML = description;
+
+  currentCity.innerHTML = response.data.name;
+  degree.innerHTML = Math.round(response.data.main.temp);
+  tempMax.innerHTML = Math.round(response.data.main.temp_max);
+  tempMin.innerHTML = Math.round(response.data.main.temp_min);
+  feels.innerHTML = Math.round(response.data.main.feels_like);
+  humidityValue.innerHTML = Math.round(response.data.main.humidity);
+  pressureValue.innerHTML = Math.round(response.data.main.pressure);
+  windValue.innerHTML = Math.round(response.data.wind.speed);
+  weatherDescription.innerHTML = response.data.weather[0].description;
 }
 
 function changeCity(cityInput) {
