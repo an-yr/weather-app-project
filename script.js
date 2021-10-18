@@ -50,6 +50,7 @@ function showTemperature(response) {
   let pressureValue = document.querySelector("#pressure");
   let windValue = document.querySelector("#wind");
   let weatherDescription = document.querySelector("#description");
+  let icon = document.querySelector("#icon");
 
   currentCity.innerHTML = response.data.name;
   degree.innerHTML = Math.round(response.data.main.temp);
@@ -60,6 +61,11 @@ function showTemperature(response) {
   pressureValue.innerHTML = Math.round(response.data.main.pressure);
   windValue.innerHTML = Math.round(response.data.wind.speed);
   weatherDescription.innerHTML = response.data.weather[0].description;
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function changeCity(cityInput) {
@@ -97,4 +103,4 @@ function showCurrentTempLocation(event) {
 let cityPosition = document.querySelector("#current-location");
 cityPosition.addEventListener("click", showCurrentTempLocation);
 
-changeCity("Curitiba", "metric");
+changeCity("Curitiba");
