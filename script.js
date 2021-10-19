@@ -52,6 +52,8 @@ function showTemperature(response) {
   let weatherDescription = document.querySelector("#description");
   let icon = document.querySelector("#icon");
 
+  celsiusTemperature = response.data.main.temp;
+
   currentCity.innerHTML = response.data.name;
   degree.innerHTML = Math.round(response.data.main.temp);
   tempMax.innerHTML = Math.round(response.data.main.temp_max);
@@ -104,3 +106,28 @@ let cityPosition = document.querySelector("#current-location");
 cityPosition.addEventListener("click", showCurrentTempLocation);
 
 changeCity("Curitiba");
+
+function convertFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemp = document.querySelector("#degree");
+  fahrenheitTemp.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+}
+
+function convertCelsius(event) {
+  event.preventDefault();
+  let celsiusTemp = document.querySelector("#degree");
+  celsiusTemp.innerHTML = Math.round(celsiusTemperature);
+
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+}
+let celsiusTemperature;
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", convertFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", convertCelsius);
