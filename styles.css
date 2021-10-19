@@ -1,21 +1,16 @@
 body {
   font-family: "Nunito", sans-serif;
+  background-color: #f7f3ff;
 }
 p {
   margin: 0;
-  font-size: 14px;
+  font-size: 12px;
 }
 a {
   text-decoration: none;
 }
 .my-card {
-  background: linear-gradient(
-    179.1deg,
-    rgb(247, 238, 238) -1.9%,
-    rgb(247, 202, 201) 44.9%,
-    rgb(145, 168, 208) 96.1%
-  );
-
+  background-color: #ffffff;
   border-radius: 0.75rem;
   width: 400px;
   position: static;
@@ -24,15 +19,30 @@ a {
   border: none;
 }
 .city-name {
-  color: rgba(0, 0, 0, 0.7);
+  color: #f6378f;
   font-size: 40px;
 }
 .today-background {
-  background: rgba(255, 255, 255, 0.1);
   width: 350px;
   border-radius: 0.5rem;
   flex: block;
   margin: 0 auto;
+  background-color: #f5efe8;
+}
+.degree-background {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 300px;
+  border-radius: 0.5rem;
+  flex: block;
+  margin: 0 auto;
+}
+.forecast-background {
+  color: #ffffff;
+  background-color: #f6378f;
+  font-size: 12px;
+}
+.number-color {
+  color: #ffdd00;
 }
 .degree-unit {
   font-size: 20px;
@@ -41,25 +51,17 @@ a {
   font-size: 40px;
   font-weight: 800;
 }
-.aditional-info {
-  font-size: 12px;
-}
 .enter-city {
   border-radius: 0.25rem;
   border: 1px solid grey;
   background: rgba(255, 255, 255, 0.7);
 }
-.sun-icon {
-  color: orangered;
-}
 .form-text {
   font-size: 12px;
 }
-
 .description {
   text-transform: capitalize;
 }
-
 .active {
   color: black;
   cursor: default;
