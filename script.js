@@ -70,6 +70,26 @@ function showTemperature(response) {
   icon.setAttribute("alt", response.data.weather[0].description);
 }
 
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+
+  let forecastHTML = ``;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col ps-0 pe-2 ">              
+                <div class="text-center forecast-each-day shadow-sm">
+                  ${day}<br /><i class="fas fa-sun sun-icon"></i>
+                  <p class="number-color fw-bolder">30º 35º</p>
+                </div>          
+            </div>`;
+  });
+
+  forecast.innerHTML = forecastHTML;
+}
+
 function changeCity(cityInput) {
   let unit = "metric";
   let apiKey = "7a5a34d388b2cd71a89ab6f315490084";
@@ -124,7 +144,9 @@ function convertCelsius(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
 }
-let celsiusTemperature;
+let celsiusTemperature = null;
+
+displayForecast();
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", convertFahrenheit);
