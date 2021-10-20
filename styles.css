@@ -23,29 +23,41 @@ a {
   font-size: 40px;
 }
 .today-background {
-  width: 350px;
+  background-color: #f5efe8;
   border-radius: 0.5rem;
   flex: block;
   margin: 0 auto;
-  background-color: #f5efe8;
+  width: 350px;
 }
 .degree-background {
   background-color: rgba(255, 255, 255, 0.9);
-  width: 300px;
   border-radius: 0.5rem;
   flex: block;
   margin: 0 auto;
+  width: 300px;
 }
-.forecast-background {
-  color: #ffffff;
+.forecast {
+  flex: block;
+  margin: 0 auto;
+  width: 350px;
+}
+.forecast-each-day {
   background-color: #f6378f;
+  border-radius: 0.5rem;
+  color: #ffffff;
   font-size: 12px;
+  padding: 8px 0;
+  margin-bottom: 10px;
+}
+.forecast-each-day:hover {
+  background-color: #8ea5eb;
+  width: 80px;
+  height: 80px;
+  padding-top: 14px;
+  margin-bottom: 0;
 }
 .number-color {
   color: #ffdd00;
-}
-.degree-unit {
-  font-size: 20px;
 }
 .degree-number {
   font-size: 40px;
