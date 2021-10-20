@@ -40,6 +40,12 @@ let currentHour = `${hour}:${minutes}`;
 let date = document.querySelector("#date");
 date.innerHTML = `${currentDay}, ${currentMonth} ${currentDate} <br> ${currentHour}`;
 
+function getForecast(coordinate) {
+  let apiKey = "7a5a34d388b2cd71a89ab6f315490084";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinate.lat}&lon=${coordinate.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
 function showTemperature(response) {
   let currentCity = document.querySelector("#location");
   let degree = document.querySelector("#degree");
@@ -68,23 +74,45 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
+}
+function getDayWeek(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecastDay = response.data.daily;
+  console.log(forecastDay);
+
   let forecast = document.querySelector("#forecast");
 
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-
   let forecastHTML = ``;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col ps-0 pe-2 ">              
+  forecastDay.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col ps-0 pe-2 ">              
                 <div class="text-center forecast-each-day shadow-sm">
-                  ${day}<br /><i class="fas fa-sun sun-icon"></i>
-                  <p class="number-color fw-bolder">30º 35º</p>
+                  ${getDayWeek(forecastDay.dt)}
+                  <br />
+                  <img src="http://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png" width="30px">
+                  </img>
+                  <p class="number-color fw-bolder">
+                     <span id="max">${Math.round(
+                       forecastDay.temp.max
+                     )}</span>º <span id="min">${Math.round(
+          forecastDay.temp.min
+        )}</span>º</p>
                 </div>          
             </div>`;
+    }
   });
 
   forecast.innerHTML = forecastHTML;
