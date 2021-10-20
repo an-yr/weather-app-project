@@ -87,13 +87,12 @@ function getDayWeek(timestamp) {
 
 function displayForecast(response) {
   let forecastDay = response.data.daily;
-  console.log(forecastDay);
 
   let forecast = document.querySelector("#forecast");
 
   let forecastHTML = ``;
   forecastDay.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 5) {
       forecastHTML =
         forecastHTML +
         `<div class="col ps-0 pe-2 ">              
@@ -107,9 +106,9 @@ function displayForecast(response) {
                   <p class="number-color fw-bolder">
                      <span id="max">${Math.round(
                        forecastDay.temp.max
-                     )}</span>º <span id="min">${Math.round(
+                     )}</span>º <span class="color-min"><span id="min">${Math.round(
           forecastDay.temp.min
-        )}</span>º</p>
+        )}</span>º</span></p> 
                 </div>          
             </div>`;
     }
@@ -173,8 +172,6 @@ function convertCelsius(event) {
   fahrenheitLink.classList.remove("active");
 }
 let celsiusTemperature = null;
-
-displayForecast();
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", convertFahrenheit);
