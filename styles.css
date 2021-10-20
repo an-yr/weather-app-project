@@ -19,11 +19,11 @@ a {
   border: none;
 }
 .city-name {
-  color: #f6378f;
+  color: #ff63b5;
   font-size: 40px;
 }
 .today-background {
-  background-color: #f5efe8;
+  background-color: #ffbbbb;
   border-radius: 0.5rem;
   flex: block;
   margin: 0 auto;
@@ -42,22 +42,22 @@ a {
   width: 350px;
 }
 .forecast-each-day {
-  background-color: #f6378f;
+  background-color: #5f4444;
   border-radius: 0.5rem;
   color: #ffffff;
   font-size: 12px;
   padding: 8px 0;
   margin-bottom: 10px;
+  transition: all 0.25s ease-in-out;
 }
 .forecast-each-day:hover {
-  background-color: #8ea5eb;
-  width: 80px;
-  height: 80px;
-  padding-top: 14px;
+  background-color: #393737;
+  width: 82px;
+  height: 82px;
   margin-bottom: 0;
 }
-.number-color {
-  color: #ffdd00;
+.color-min {
+  opacity: 80%;
 }
 .degree-number {
   font-size: 40px;
@@ -73,6 +73,14 @@ a {
 }
 .description {
   text-transform: capitalize;
+}
+.btn-city {
+  background-color: #af3264;
+  color: #ffffff;
+}
+.btn-city:hover {
+  color: #ffffff;
+  background-color: #7e2247;
 }
 .active {
   color: black;
