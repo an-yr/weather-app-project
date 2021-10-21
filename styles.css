@@ -48,7 +48,7 @@ a {
   font-size: 12px;
   padding: 8px 0;
   margin-bottom: 10px;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.75s ease-out;
 }
 .forecast-each-day:hover {
   background-color: #393737;
@@ -81,14 +81,4 @@ a {
 .btn-city:hover {
   color: #ffffff;
   background-color: #7e2247;
-}
-.active {
-  color: black;
-  cursor: default;
-}
-
-.active:hover {
-  cursor: default;
-  text-decoration: none;
-  color: black;
 }
